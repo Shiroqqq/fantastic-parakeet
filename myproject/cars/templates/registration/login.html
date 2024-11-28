@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Вход</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Войти</button>
+  </form>
+  <p>Еще нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a></p>
+
+  {% if next %}
+    <p>Вы были перенаправлены с страницы: {{ next }}</p>
+  {% endif %}
+{% endblock %}

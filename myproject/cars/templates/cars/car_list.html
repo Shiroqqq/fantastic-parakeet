@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Ваши автомобили</h2>
+  <ul>
+    {% for car in cars %}
+      <li>{{ car.brand }} {{ car.model }} ({{ car.number }})</li>
+    {% empty %}
+      <p>У вас нет добавленных автомобилей.</p>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'add_car' %}">Добавить новый автомобиль</a>
+{% endblock %}
